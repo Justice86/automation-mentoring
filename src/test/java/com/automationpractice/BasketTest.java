@@ -14,7 +14,7 @@ import static org.testng.Assert.assertEquals;
 
 public class BasketTest {
 
-    private static final WebDriver driver = WebDriverFactory.getWebDriver(BrowserTypes.SafariBrowser);
+    private static final WebDriver driver = WebDriverFactory.getWebDriver(BrowserTypes.FirefoxBrowser);
     private final SeleniumConfig seleniumConfig = new SeleniumConfig(driver);
     private final BasketPage basketPage = new BasketPage(driver);
     private final MainPage mainPage = new MainPage(driver);

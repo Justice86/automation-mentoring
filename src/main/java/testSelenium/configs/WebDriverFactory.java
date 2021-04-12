@@ -10,12 +10,12 @@ public class WebDriverFactory {
     public static WebDriver getWebDriver(BrowserTypes type){
         switch (type){
             case ChromeBrowser:
-                System.setProperty("webdriver.chrome.driver", "//Users//zhovtukha//Downloads//chromedriver");
+                System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
                 return new ChromeDriver();
             case SafariBrowser:
                 return new SafariDriver();
             case FirefoxBrowser:
-                System.setProperty("webdriver.gecko.driver", "//Users//zhovtukha//Downloads//geckodriver");
+                System.setProperty("webdriver.gecko.driver", "drivers/geckodriver");
                 return new FirefoxDriver();
             default:
                 throw new IllegalArgumentException("No browser selected");
