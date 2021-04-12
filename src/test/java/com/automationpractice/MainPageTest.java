@@ -1,31 +1,14 @@
 package com.automationpractice;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import project.MainPage;
-import testSelenium.configs.BrowserTypes;
-import testSelenium.configs.SeleniumConfig;
-import testSelenium.configs.WebDriverFactory;
 
 import static org.testng.Assert.assertTrue;
 
-public class MainPageTest {
+public class MainPageTest extends BaseTest {
 
-    private static final WebDriver driver = WebDriverFactory.getWebDriver(BrowserTypes.ChromeBrowser);
-    private final SeleniumConfig seleniumConfig = new SeleniumConfig(driver);
-    private final MainPage mainPage = new MainPage(driver);
-
-    @BeforeSuite
-    public void setUp(){
-        seleniumConfig.openBrowser();
-    }
-
-    @AfterSuite
-    public void tearDown(){
-        seleniumConfig.closeBrowser();
-    }
+    public final MainPage mainPage = new MainPage(driver);
+    //public final BasketPage basketPage = new BasketPage(driver);
 
     @Test
     public void testCanCheckSearchOption() {

@@ -11,7 +11,7 @@ public class BasketPage {
         this.driver = driver;
     }
 
-    public String basketPrice(){
+    public String basketPrice() {
         return driver.findElement(By.id("total_product")).getText().trim();
     }
 }

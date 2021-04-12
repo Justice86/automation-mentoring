@@ -1,35 +1,13 @@
 package project;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import testSelenium.configs.DriverConfigs;
 
-import java.util.concurrent.TimeUnit;
-
-public class MainPage {
-
-    public boolean onMouseOver(WebElement element)
-    {
-        boolean result = false;
-        try
-        {
-            String mouseOverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover', true, false);" +
-                    "arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
-            JavascriptExecutor js = (JavascriptExecutor) driver;
-            js.executeScript(mouseOverScript, element);
-            result = true;
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    private final WebDriver driver;
+public class MainPage extends DriverConfigs {
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -49,13 +27,11 @@ public class MainPage {
     }
 
     public void addItemToBasket() {
-        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-        JavascriptExecutor js = (JavascriptExecutor)driver;
-        js.executeScript("scroll(0, 500);");
-        WebElement hoverElement = driver.findElement(By.cssSelector("a[class='product_img_link']"));
-        onMouseOver(hoverElement);
-        driver.findElement(By.cssSelector("a[data-id-product='1']")).click();
         WebDriverWait wait = new WebDriverWait(driver, 5);
+        scrollDown();
+        WebElement imageLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[class='product_img_link']")));
+        onMouseOver(imageLink);
+        driver.findElement(By.cssSelector("a[data-id-product='1']")).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='btn btn-default button button-medium']")));
         driver.findElement(By.cssSelector("a[class='btn btn-default button button-medium']")).click();
     }

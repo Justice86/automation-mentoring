@@ -7,7 +7,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class WebDriverFactory {
 
-    public static WebDriver getWebDriver(BrowserTypes type){
+    public static WebDriver getWebDriver(BrowserTypes type) {
         switch (type){
             case ChromeBrowser:
                 System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");

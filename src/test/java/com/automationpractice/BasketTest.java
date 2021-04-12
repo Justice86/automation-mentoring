@@ -1,33 +1,15 @@
 package com.automationpractice;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 import project.BasketPage;
 import project.MainPage;
-import testSelenium.configs.BrowserTypes;
-import testSelenium.configs.SeleniumConfig;
-import testSelenium.configs.WebDriverFactory;
 
 import static org.testng.Assert.assertEquals;
 
-public class BasketTest {
+public class BasketTest extends BaseTest {
 
-    private static final WebDriver driver = WebDriverFactory.getWebDriver(BrowserTypes.FirefoxBrowser);
-    private final SeleniumConfig seleniumConfig = new SeleniumConfig(driver);
-    private final BasketPage basketPage = new BasketPage(driver);
-    private final MainPage mainPage = new MainPage(driver);
-
-    @BeforeSuite
-    public void setUp(){
-        seleniumConfig.openBrowser();
-    }
-
-    @AfterSuite
-    public void tearDown(){
-        seleniumConfig.closeBrowser();
-    }
+    public final MainPage mainPage = new MainPage(driver);
+    public final BasketPage basketPage = new BasketPage(driver);
 
     @Test
     public void testCanCheckPriceMatch() {
