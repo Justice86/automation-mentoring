@@ -30,7 +30,7 @@ public class BasketTest {
     }
 
     @Test
-    public void testCanCheckPriceMatch() throws InterruptedException {
+    public void testCanCheckPriceMatch() {
         String expected = mainPage.priceBeforeBasket();
         mainPage.addItemToBasket();
         assertEquals(expected, basketPage.basketPrice());
