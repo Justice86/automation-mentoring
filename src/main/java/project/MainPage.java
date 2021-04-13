@@ -7,7 +7,11 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import testSelenium.configs.DriverConfigs;
 
-public class MainPage extends DriverConfigs {
+public class MainPage {
+    
+    public WebDriver driver;
+
+    DriverConfigs driverConfigs = new DriverConfigs();
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -28,9 +32,9 @@ public class MainPage extends DriverConfigs {
 
     public void addItemToBasket() {
         WebDriverWait wait = new WebDriverWait(driver, 5);
-        scrollDown();
+        driverConfigs.scrollDown(driver);
         WebElement imageLink = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("a[class='product_img_link']")));
-        onMouseOver(imageLink);
+        driverConfigs.onMouseOver(imageLink, driver);
         driver.findElement(By.cssSelector("a[data-id-product='1']")).click();
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("a[class='btn btn-default button button-medium']")));
         driver.findElement(By.cssSelector("a[class='btn btn-default button button-medium']")).click();

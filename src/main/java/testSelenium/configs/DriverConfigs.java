@@ -6,9 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class DriverConfigs {
 
-    public WebDriver driver;
-
-    public void onMouseOver (WebElement element) {
+    public void onMouseOver (WebElement element, WebDriver driver) {
         try {
             String mouseOverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover', true, false);" +
                     "arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
@@ -20,7 +18,7 @@ public class DriverConfigs {
         }
     }
 
-    public void scrollDown() {
+    public void scrollDown(WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("scroll(0, 500);");
     }

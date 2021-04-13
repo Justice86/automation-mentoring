@@ -9,7 +9,7 @@ import testSelenium.configs.WebDriverFactory;
 
 public class BaseTest {
 
-    public static final WebDriver driver = WebDriverFactory.getWebDriver(BrowserTypes.ChromeBrowser);
+    public static final WebDriver driver = WebDriverFactory.getWebDriver(BrowserTypes.SafariBrowser);
     public final SeleniumConfig seleniumConfig = new SeleniumConfig(driver);
 
     @BeforeMethod
