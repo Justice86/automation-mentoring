@@ -2,17 +2,17 @@ package com.automationpractice;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeMethod;
 import testSelenium.configs.BrowserTypes;
 import testSelenium.configs.SeleniumConfig;
 import testSelenium.configs.WebDriverFactory;
 
 public class BaseTest {
 
-    public static final WebDriver driver = WebDriverFactory.getWebDriver(BrowserTypes.SafariBrowser);
+    public static final WebDriver driver = WebDriverFactory.getWebDriver(BrowserTypes.ChromeBrowser);
     public final SeleniumConfig seleniumConfig = new SeleniumConfig(driver);
 
-    @BeforeSuite
+    @BeforeMethod
     public void setUp(){
         seleniumConfig.openBrowser();
     }

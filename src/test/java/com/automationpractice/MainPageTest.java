@@ -8,7 +8,6 @@ import static org.testng.Assert.assertTrue;
 public class MainPageTest extends BaseTest {
 
     public final MainPage mainPage = new MainPage(driver);
-    //public final BasketPage basketPage = new BasketPage(driver);
 
     @Test
     public void testCanCheckSearchOption() {
